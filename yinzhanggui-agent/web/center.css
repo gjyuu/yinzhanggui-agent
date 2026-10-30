@@ -1,0 +1,102 @@
+/* 个人中心: 整页复用 landing.css 的组件样式, 这里只做页面框架 */
+.center-page{overflow-y:auto;min-height:100%}
+.center-shell{
+  position:relative;z-index:1;min-height:100vh;
+  display:grid;grid-template-columns:240px minmax(0,1fr) 310px;
+  gap:0;
+}
+.c-side{
+  display:flex;flex-direction:column;gap:20px;padding:22px 16px;
+  border-right:1px solid rgba(255,255,255,.07);background:rgba(10,13,20,.6);
+}
+.c-side-foot{margin-top:auto;display:flex;flex-direction:column;gap:10px;padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.06)}
+.c-logout{
+  font-size:11.5px;padding:8px 11px;border-radius:8px;text-align:left;
+  color:#8b95a7;border:1px solid rgba(255,255,255,.13);background:transparent;transition:.16s;
+}
+.c-logout:hover{color:#e74c3c;border-color:rgba(231,76,60,.5)}
+.c-link{font-size:11.5px;color:#4b8ae6;text-decoration:none}
+.c-link:hover{color:#7fb0ff}
+
+.c-main{display:flex;flex-direction:column;gap:16px;padding:22px 22px 18px;min-width:0}
+.c-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.c-head h1{margin:6px 0 0;font-size:19px;font-weight:650;letter-spacing:.2px}
+.c-main .chart{flex:none;height:330px}
+.c-log{
+  flex:1;min-height:150px;display:flex;flex-direction:column;
+  border-radius:14px;border:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+  padding:12px 14px;
+}
+#cLogList{list-style:none;margin:10px 0 0;padding:0;flex:1;overflow:hidden;
+  display:flex;flex-direction:column;gap:6px;font-size:11.5px;color:#9aa4b5}
+#cLogList li{display:flex;gap:8px;align-items:baseline}
+#cLogList .lg-stage{flex:none;width:64px;color:#4fb6ff;font-size:10px;letter-spacing:.4px;text-transform:uppercase}
+#cLogList .lg-txt{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#cLogList .lg-ts{flex:none;color:#525d70;font-size:10px}
+
+.c-config{
+  border-left:1px solid rgba(255,255,255,.07);background:rgba(10,13,20,.5);
+  padding:22px 18px;display:flex;flex-direction:column;gap:16px;
+}
+.c-config h3{margin:0;font-size:13px;letter-spacing:.5px;color:#e8ebf0}
+
+@media (max-width:1100px){
+  .center-shell{grid-template-columns:220px 1fr}
+  .c-config{display:none}
+}
+@media (max-width:820px){
+  .center-shell{grid-template-columns:1fr}
+  .c-side{display:none}
+}
+
+/* ===== 柱状图修正: 数值 / 柱体 / 标签 三行网格, 永不重叠 ===== */
+.chart{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:10px;
+  align-items:stretch;padding:14px 12px 8px}
+.bar-col{display:grid;grid-template-rows:18px 1fr 18px;gap:6px;height:100%;
+  align-items:end;min-width:0}
+.bar-val{font-size:11px;line-height:18px;text-align:center;color:#9aa4b5;
+  font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{width:100%;height:0;border-radius:6px 6px 3px 3px;box-shadow:none;
+  background:linear-gradient(180deg,#3f7fcc 0%,#2a5aa8 100%);
+  transition:height .7s cubic-bezier(.22,.61,.36,1)}
+.bar-label{font-size:11px;line-height:18px;text-align:center;color:#7d879a;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ===== 降饱和: 主色不再荧光 ===== */
+.btn--primary{background:linear-gradient(100deg,#2b6cc4 0%,#2f97b0 100%);
+  box-shadow:0 8px 22px rgba(43,108,196,.22)}
+.btn--primary:hover{box-shadow:0 12px 28px rgba(47,151,176,.26)}
+.tag-dot{background:linear-gradient(135deg,#4a86c8,#3fb0a8);box-shadow:0 0 8px rgba(74,134,200,.7)}
+.logo,.dash-logo{background:linear-gradient(150deg,#2f6cba,#2f97b0)}
+.mfa-method.sel{border-color:#3f7fcc}
+.login-brand .logo{background:linear-gradient(150deg,#2f6cba,#2f97b0)}
+.btn--ghost{color:#8f9aab;border-color:rgba(255,255,255,.13)}
+.btn--ghost:hover{color:#cfd8e6;background:rgba(255,255,255,.05)}
+
+/* ===== 登录身份卡: 选中/悬停更明确 ===== */
+.id-item{position:relative;overflow:hidden}
+.id-item:hover{border-color:rgba(63,127,204,.6);background:rgba(47,102,201,.1);
+  padding-left:18px}
+.id-item:focus-visible{outline:2px solid #3f7fcc;outline-offset:2px}
+.id-item:hover .go{color:#7fb0ff}
+.login-alt{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);line-height:1.9}
+.login-note{margin-top:20px}
+
+/* ===== 柱宽统一: 列宽均分(不受文字影响) + 柱子固定宽度 ===== */
+.chart{grid-auto-columns:minmax(0,1fr);gap:12px}
+.bar-col{justify-items:center}
+.bar{width:min(64px,62%);margin-inline:auto}
+.bar-val,.bar-label{width:100%;text-align:center}
+
+/* ===== 柱状图最终规则: 宽度固定 64px(!important 兜底), 高度按数据 ===== */
+.chart{--bar-w:64px}
+.bar{width:var(--bar-w) !important;min-width:var(--bar-w);max-width:var(--bar-w);
+  margin-left:auto !important;margin-right:auto !important}
+.bar-col{justify-items:center}
+.bar-val,.bar-label{width:100%;text-align:center}
+
+html{scroll-behavior:smooth}
+.chart{scroll-margin-top:24px}
+

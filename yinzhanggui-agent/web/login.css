@@ -1,0 +1,92 @@
+/* 演示登录页 (复用 landing.css 的黑底光束与品牌样式) */
+.login-page{overflow-y:auto;min-height:100%}
+.login-wrap{
+  position:relative;z-index:1;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px 24px;gap:18px;
+}
+.login-back{
+  position:absolute;top:26px;left:32px;
+  font-size:12.5px;color:#8f9aab;text-decoration:none;transition:.16s;
+}
+.login-back:hover{color:#cfd8e6}
+
+.login-card{
+  width:560px;max-width:100%;
+  padding:30px 28px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(180deg,rgba(18,23,34,.96),rgba(9,12,19,.98));
+  box-shadow:0 40px 100px rgba(0,0,0,.75);
+}
+.login-brand{display:flex;align-items:center;gap:11px;margin-bottom:22px}
+.login-brand .logo{
+  width:40px;height:40px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(150deg,#2f7bff,#33d6e8);color:#04121f;font-weight:800;font-size:19px;
+}
+.login-brand b{display:block;font-size:16px;letter-spacing:1.4px}
+.login-brand i{display:block;font-size:10.5px;color:#6f7a8d;font-style:normal;margin-top:2px}
+
+.login-card h1{margin:0 0 8px;font-size:22px;letter-spacing:-.3px;
+  background:linear-gradient(180deg,#fff 30%,#98a2b2 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.login-sub{margin:0 0 20px;font-size:12.5px;color:#8b95a7;line-height:1.7}
+
+.identity{display:grid;gap:9px}
+.id-item{
+  display:flex;align-items:center;gap:12px;width:100%;
+  padding:14px 15px;border-radius:10px;text-align:left;cursor:pointer;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);transition:.16s;
+}
+.id-item:hover{border-color:rgba(75,138,230,.55);background:rgba(47,102,201,.12);transform:translateY(-1px)}
+.id-item .ico{
+  width:34px;height:34px;border-radius:8px;display:grid;place-items:center;font-size:16px;
+  background:rgba(47,102,201,.2);flex:none;
+}
+.id-item b{display:block;font-size:13.5px;color:#fff;font-weight:600}
+.id-item i{display:block;font-size:11px;color:#8b95a7;font-style:normal;margin-top:3px;line-height:1.5}
+.id-item .go{margin-left:auto;font-size:11.5px;color:#4b8ae6;flex:none}
+
+.login-note{
+  margin-top:18px;padding:12px 14px;border-radius:10px;font-size:11.5px;line-height:1.75;
+  color:#8b95a7;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+}
+.login-note b{display:block;color:#cfd8e6;font-size:12px;margin-bottom:4px;font-weight:600}
+.login-alt{margin-top:12px;font-size:11.5px;color:#6f7a8d;line-height:1.7}
+
+@media (max-width:600px){
+  .login-card{padding:22px 18px}
+  .login-back{position:static;align-self:flex-start}
+}
+
+/* ===== 注册表单 (演示, 全部禁用) ===== */
+.reg-form{display:grid;gap:12px;margin-bottom:4px}
+.reg-form label{display:grid;gap:6px;font-size:11.5px;color:#8b95a7}
+.reg-form input[type=text],.reg-form input[type=tel],.reg-form input[type=password]{
+  width:100%;padding:11px 13px;border-radius:9px;font-size:13px;color:#cfd8e6;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);outline:none;
+}
+.reg-form input:disabled{opacity:.55;cursor:not-allowed}
+.reg-code{display:flex;gap:8px}
+.reg-code input{flex:1}
+.reg-code button{
+  flex:none;padding:0 14px;border-radius:9px;font-size:11.5px;
+  color:#6f7a8d;border:1px solid rgba(255,255,255,.12);background:transparent;cursor:not-allowed;
+}
+.reg-agree{display:flex;gap:8px;align-items:flex-start;font-size:11px;color:#6f7a8d;line-height:1.6}
+.reg-agree input{margin-top:2px;accent-color:#2f66c9}
+.reg-submit{
+  margin-top:4px;padding:12px;border-radius:9px;font-size:13px;font-weight:600;
+  color:#5d6980;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  cursor:not-allowed;
+}
+
+/* ===== 注册按钮: 正常主行动样式 ===== */
+.reg-submit{
+  color:#fff;font-weight:600;border:none;cursor:pointer;
+  background:linear-gradient(100deg,#2b6cc4,#2f97b0);
+  box-shadow:0 8px 22px rgba(43,108,196,.26);transition:.16s;
+}
+.reg-submit:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.reg-code-btn{color:#9dc4ff;border-color:rgba(47,102,201,.42);background:rgba(47,102,201,.12);cursor:pointer;transition:.15s}
+.reg-code-btn:hover{background:rgba(47,102,201,.22)}
+.reg-note{margin-top:9px;font-size:11.5px;color:#f0b429;line-height:1.6}

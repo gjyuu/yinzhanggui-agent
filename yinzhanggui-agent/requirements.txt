@@ -1,0 +1,14 @@
+# 银掌柜 · 银行 AI 智能体 —— 运行依赖
+#
+# 常规环境:
+#   pip install -r requirements.txt
+#
+# 若环境不允许 pip 清理临时目录(受限沙箱 / 离线内网机), 用自带引导脚本:
+#   python tools/getdeps.py     # 依赖解包到 .pylibs/, 启动时自动加入 sys.path
+
+fastapi>=0.110
+uvicorn>=0.27
+
+# 测试
+pytest>=8.0
+httpx>=0.27

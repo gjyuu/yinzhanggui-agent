@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人中心 · 银掌柜</title>
+<link rel="stylesheet" href="/static/landing.css">
+<link rel="stylesheet" href="/static/center.css">
+</head>
+<body class="center-page">
+
+<div class="beams" aria-hidden="true">
+  <div class="beam beam--tl on"></div>
+  <div class="beam beam--tr on"></div>
+</div>
+
+<div class="center-shell">
+
+  <!-- 左: 导航 -->
+  <aside class="c-side">
+    <div class="dash-brand">
+      <div class="dash-logo">银</div>
+      <div><b>银掌柜</b><i>Personal Center</i></div>
+    </div>
+
+    <nav class="dash-nav">
+      <a class="on" href="#top">个人中心</a>
+      <a href="#account">我的账户</a>
+      <a href="#bill">账单分析</a>
+      <a href="#account">我的理财</a>
+    </nav>
+
+    <div class="c-side-foot">
+      <div class="dash-user">
+        <div class="dash-avatar" id="cAvatar">张</div>
+        <div><b id="cUserName">张伟</b><i id="cUserLevel">金卡客户</i></div>
+      </div>
+      <button class="c-logout" id="cLogout">退出登录</button>
+      <a class="c-link" href="/app">回到智能助手 →</a>
+    </div>
+  </aside>
+
+  <!-- 中: 数据 -->
+  <main class="c-main" id="top">
+    <header class="c-head">
+      <div>
+        <span class="dash-eyebrow">近 30 天</span>
+        <h1>我的支出结构</h1>
+      </div>
+      <div class="dash-kpis">
+        <div><i>活期余额</i><b id="cBalance">¥—</b></div>
+        <div><i>本月支出</i><b id="cSpend">¥—</b></div>
+        <div><i>本月笔数</i><b id="cCount">—</b></div>
+      </div>
+    </header>
+
+    <span id="bill"></span>
+    <div class="chart" id="cChart"></div>
+
+    <div class="c-log">
+      <div class="log-head">
+        <span class="dot-live"></span> 最近操作记录
+        <span class="log-chain">仅显示你自己账户的相关记录</span>
+      </div>
+      <ul id="cLogList"></ul>
+    </div>
+  </main>
+
+  <!-- 右: 账户洞察 -->
+  <aside class="c-config" id="account">
+    <h3>账户洞察</h3>
+    <p class="cfg-note">近 30 天 · 数据实时</p>
+
+    <div class="cfg-block">
+      <div class="cfg-row"><span>活期余额</span><b id="c2Balance">¥—</b></div>
+      <div class="cfg-row"><span>本月支出</span><b id="c2Spend">¥—</b></div>
+      <div class="cfg-row"><span>折合月供订阅</span><b id="cSubs">—</b></div>
+    </div>
+
+    <div class="cfg-block">
+      <div class="cfg-title">你的操作安全等级</div>
+      <div class="tier-row"><span class="tdot g"></span>自动执行<b id="cTierG">—</b></div>
+      <div class="tier-row"><span class="tdot y"></span>需我确认<b id="cTierY">—</b></div>
+      <div class="tier-row"><span class="tdot r"></span>强验证<b id="cTierR">—</b></div>
+    </div>
+
+    <div class="cfg-block">
+      <div class="cfg-title">强验证方式</div>
+      <div class="chips-mini"><span>人脸识别</span><span>短信验证码</span><span>U 盾</span></div>
+    </div>
+
+    <div class="cfg-foot">v1.0.0 · 演示数据</div>
+  </aside>
+</div>
+
+<script>
+  /* 登录校验: 未登录先去登录页, 登录后回到这里 */
+  if (!localStorage.getItem("yz_user")) {
+    location.replace("/login?next=/center");
+  }
+</script>
+<script src="/static/center.js"></script>
+</body>
+</html>
