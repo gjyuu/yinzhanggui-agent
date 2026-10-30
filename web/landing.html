@@ -1,0 +1,124 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>银掌柜 · 银行 AI 智能体</title>
+<link rel="stylesheet" href="/static/landing.css">
+</head>
+<body>
+
+<!-- ============ 背景光束 (固定在内容之下, 不被任何面板遮挡) ============ -->
+<div class="beams" aria-hidden="true">
+  <div class="beam beam--tl"></div>
+  <div class="beam beam--tr"></div>
+</div>
+<div class="grid-veil" aria-hidden="true"></div>
+
+<main class="page">
+
+  <!-- 顶部标签 -->
+  <div class="tag" data-anim style="--i:0">
+    <span class="tag-dot"></span>
+    <span>AI BANKING AGENT · 参赛作品 · 支持 APP / IM 双渠道</span>
+  </div>
+
+  <!-- 文本区域 -->
+  <h1 class="title" data-anim style="--i:1">一句话，把银行办了</h1>
+  <p class="subtitle" data-anim style="--i:2">
+    理解自然语言意图，自主拆解任务 DAG，在三级权限与多重安全机制下办理银行业务。<br>
+    查询自动执行 · 动钱先确认 · 高风险强验证
+  </p>
+
+  <!-- 按钮组 -->
+  <div class="actions" data-anim style="--i:3">
+    <a class="btn btn--primary" href="/login">开始使用</a>
+    <a class="btn btn--ghost" href="/center">我的账户</a>
+  </div>
+
+  <!-- Dashboard 展示: 1150 × 750, 3D Tilt -->
+  <div class="mockup-shell" data-anim style="--i:4">
+    <div class="mockup-glow" aria-hidden="true"></div>
+    <section class="dashboard" id="dashboard" aria-label="银掌柜控制台预览">
+
+      <!-- 左侧边栏 -->
+      <aside class="dash-side">
+        <div class="dash-brand">
+          <div class="dash-logo">银</div>
+          <div>
+            <b>银掌柜</b>
+            <i>Banking Agent</i>
+          </div>
+        </div>
+        <nav class="dash-nav">
+          <a class="on">对话</a>
+          <a>我的账户</a>
+          <a>账单分析</a>
+          <a>我的理财</a>
+        </nav>
+        <div class="dash-user">
+          <div class="dash-avatar">张</div>
+          <div><b id="dashUserName">张伟</b><i>金卡客户</i></div>
+        </div>
+      </aside>
+
+      <!-- 中部: 柱状图 + 日志 -->
+      <div class="dash-main">
+        <header class="dash-head">
+          <div>
+            <span class="dash-eyebrow">近 30 天</span>
+            <h2>支出结构</h2>
+          </div>
+          <div class="dash-kpis">
+            <div><i>活期余额</i><b id="kpiBalance">¥—</b></div>
+            <div><i>本月支出</i><b id="kpiSpend">¥—</b></div>
+            <div><i>权限动作</i><b id="kpiPolicy">—</b></div>
+          </div>
+        </header>
+
+        <div class="chart" id="chart"></div>
+
+        <div class="dash-log">
+          <div class="log-head">
+            <span class="dot-live"></span> 实时审计日志
+            <span class="log-chain" id="logChain">哈希链校验中…</span>
+          </div>
+          <ul id="logList"></ul>
+        </div>
+      </div>
+
+      <!-- 右侧: 客户视角的账户洞察 (风控配置属于管理员视角, 不在此展示) -->
+      <aside class="dash-config">
+        <h3>账户洞察</h3>
+        <p class="cfg-note">近 30 天 · 数据实时</p>
+
+        <div class="cfg-block">
+          <div class="cfg-row"><span>活期余额</span><b id="cfgBalance">¥—</b></div>
+          <div class="cfg-row"><span>本月支出</span><b id="cfgSpend">¥—</b></div>
+          <div class="cfg-row"><span>折合月供订阅</span><b id="cfgSubs">—</b></div>
+        </div>
+
+        <div class="cfg-block">
+          <div class="cfg-title">你的操作安全等级</div>
+          <div class="tier-row"><span class="tdot g"></span>自动执行<b id="tierGreen">—</b></div>
+          <div class="tier-row"><span class="tdot y"></span>需我确认<b id="tierYellow">—</b></div>
+          <div class="tier-row"><span class="tdot r"></span>强验证<b id="tierRed">—</b></div>
+        </div>
+
+        <div class="cfg-block">
+          <div class="cfg-title">强验证方式</div>
+          <div class="chips-mini">
+            <span>人脸识别</span><span>短信验证码</span><span>U 盾</span>
+          </div>
+        </div>
+
+        <div class="cfg-foot">v1.0.0 · 演示数据</div>
+      </aside>
+    </section>
+  </div>
+</main>
+
+<script src="/static/motion.js"></script>
+<script src="/static/landing.js"></script>
+</body>
+</html>

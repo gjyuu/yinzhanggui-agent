@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>注册 · 银掌柜</title>
+<link rel="stylesheet" href="/static/landing.css">
+<link rel="stylesheet" href="/static/login.css">
+</head>
+<body class="login-page">
+
+<div class="beams" aria-hidden="true">
+  <div class="beam beam--tl on"></div>
+  <div class="beam beam--tr on"></div>
+</div>
+<div class="grid-veil" aria-hidden="true"></div>
+
+<main class="login-wrap">
+  <a class="login-back" href="/login">← 返回登录</a>
+
+  <section class="login-card">
+    <div class="login-brand">
+      <div class="logo">银</div>
+      <div><b>银掌柜</b><i>Banking Agent · 开户</i></div>
+    </div>
+
+    <h1>注册新账户</h1>
+    <p class="login-sub">
+      填写手机号并设置登录密码，即完成开户。
+    </p>
+
+    <form class="reg-form" onsubmit="return false">
+      <label>手机号
+        <input type="tel" inputmode="numeric" maxlength="11" required pattern="\d{11}" placeholder="请输入 11 位手机号">
+      </label>
+      <label>短信验证码
+        <span class="reg-code">
+          <input type="text" maxlength="6" required pattern="\d{6}" placeholder="6 位验证码">
+          <button type="button" class="reg-code-btn">获取验证码</button>
+        </span>
+      </label>
+      <label>设置登录密码
+        <input type="password" minlength="8" maxlength="20" required placeholder="8-20 位，含字母与数字">
+      </label>
+      <label>确认密码
+        <input type="password" minlength="8" maxlength="20" required placeholder="再次输入密码">
+      </label>
+
+      <label class="reg-agree">
+        <input type="checkbox" required>
+        <span>我已阅读并同意《个人金融信息保护约定》与《用户服务协议》</span>
+      </label>
+
+      <button class="reg-submit" type="submit" id="regSubmit">注册</button>
+    </form>
+
+    <div class="login-alt">
+      已有账户？<a href="/login" style="color:#4b8ae6">去登录 →</a>
+    </div>
+  </section>
+</main>
+
+<script>
+  const regForm = document.querySelector(".reg-form");
+  if (regForm) regForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("regSubmit");
+    btn.disabled = true;
+    btn.textContent = "注册中…";
+    setTimeout(() => { window.location.href = "/login"; }, 700);
+  });
+</script>
+</body>
+</html>
